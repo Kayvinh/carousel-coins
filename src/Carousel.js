@@ -14,7 +14,7 @@ import Card from "./Card";
  * 
  * App --> Carousel --> Card
  */
- function Carousel({ photos, title }) {
+function Carousel({ photos, title }) {
   const [currCardIdx, setCurrCardIdx] = useState(0);
 
   const currCard = photos[currCardIdx];
@@ -35,10 +35,11 @@ import Card from "./Card";
       <h1>{title}</h1>
       <div className="Carousel-main">
         {/* make hidden if on first, always have icon there */}
-        {currCardIdx !== 0 && <i
+        <i
+          style={{ visibility: currCardIdx !== 0 ? "visible" : "hidden" }}
           className="bi bi-arrow-left-circle"
           onClick={goBackward}
-        />}
+        />
         <Card
           caption={currCard.caption}
           src={currCard.src}
@@ -46,10 +47,11 @@ import Card from "./Card";
           totalNum={total}
         />
         {/* make hidden if on last, always have icon there */}
-        {currCardIdx !== total - 1 && <i
+        <i
+          style={{ visibility: currCardIdx !== total - 1 ? "visible" : "hidden" }}
           className="bi bi-arrow-right-circle"
           onClick={goForward}
-        />}
+        />
       </div>
     </div>
   );

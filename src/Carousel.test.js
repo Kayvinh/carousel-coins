@@ -82,7 +82,7 @@ it("Hide arrow img on left if on first image", function () {
   );
 
   const leftArrow = container.querySelector(".bi-arrow-left-circle");
-  expect(leftArrow).not.toBeInTheDocument();
+  expect(leftArrow).not.toBeVisible();
 });
 
 it("Hide arrow img on right if on last image", function () {
@@ -99,6 +99,6 @@ it("Hide arrow img on right if on last image", function () {
   fireEvent.click(rightArrow);
   fireEvent.click(rightArrow);
 
-  expect(rightArrow).not.toBeInTheDocument();
+  expect(rightArrow).not.toBeVisible();
   expect(container).toMatchSnapshot();
 });
